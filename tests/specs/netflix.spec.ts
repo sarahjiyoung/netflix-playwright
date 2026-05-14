@@ -54,6 +54,9 @@ test.describe('넷플릭스 메인 페이지', () => {
   test('로고가 화면 상단에 표시된다', async ({ page }) => {
     const netflix = new NetflixMainPage(page);
 
-    await expect(netflix.logo).toBeAttached();
+    // banner = <header> 태그의 접근성 role
+    // 넷플릭스 로고는 aria-hidden이라 직접 못 찾고
+    // 로고가 속한 헤더 영역이 존재하는지로 대신 검증
+    await expect(netflix.header).toBeAttached();
   });
 });

@@ -10,7 +10,7 @@ export class NetflixMainPage {
   readonly page: Page;
   readonly loginButton: Locator;
   readonly emailInput: Locator;
-  readonly logo: Locator;
+  readonly header: Locator;
   readonly languageSelector: Locator;
 
   // constructor: 이 클래스로 객체를 만들 때 처음 실행되는 함수
@@ -25,7 +25,7 @@ export class NetflixMainPage {
     this.emailInput = page.getByLabel('이메일 주소');
 
     // 넷플릭스 로고는 <img alt="Netflix"> 가 아니라 SVG로 되어 있어서 수정
-    this.logo = page.locator('.nmhp-card-header-logo')
+    this.header = page.getByRole('banner');
 
     // page.locator: CSS 선택자로 요소를 찾음 (위 방법으로 못 찾을 때 씀)
     this.languageSelector = page.locator('select.nf-select');
