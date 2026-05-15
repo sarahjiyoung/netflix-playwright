@@ -13,7 +13,7 @@ test.describe('넷플릭스 플랜 및 언어 테스트', () => {
     const planPage = new PlanPage(page);
 
     // 영어로 변경
-    await planPage.changeLanguage('en');
+    await planPage.changeLanguage('en-KR');
 
     // 영어로 바뀐 제목 확인
     await expect(page.getByRole('heading', { level: 1 }))
@@ -22,14 +22,15 @@ test.describe('넷플릭스 플랜 및 언어 테스트', () => {
 
   // ── 테스트 2 ──────────────────────────────────────────────
   test('메인 페이지에 이메일 입력창이 존재한다', async ({ page }) => {
-    // 메인 페이지에서 바로 가입 유도하는 이메일 입력창 확인
-    const emailInput = page.getByRole('textbox', { name: '이메일 주소' });
+    // first() = 페이지에서 첫 번째로 나오는 것만 선택
+    const emailInput = page.getByRole('textbox', { name: '이메일 주소' }).first();
     await expect(emailInput).toBeVisible();
   });
 
   // ── 테스트 3 ──────────────────────────────────────────────
   test('시작하기 버튼이 존재한다', async ({ page }) => {
-    const startButton = page.getByRole('button', { name: '시작하기' });
+    // first() = 페이지에서 첫 번째로 나오는 것만 선택
+    const startButton = page.getByRole('button', { name: '시작하기' }).first();
     await expect(startButton).toBeVisible();
   });
 

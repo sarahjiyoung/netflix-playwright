@@ -22,6 +22,6 @@ export class PlanPage {
 
   async changeLanguage(value: string) {
     // 'en' 넣으면 영어로 변경
-    await this.languageSelector.selectOption(value);
+    await this.languageSelector.selectOption({ value: value });
   }
 }

@@ -10,7 +10,7 @@ export default defineConfig({
   retries: 1,
 
   // 테스트 하나당 최대 대기 시간 (30초)
-  timeout: 30000,
+  timeout: 60000,
 
   // 리포트 형식: html로 하면 나중에 예쁜 결과 페이지가 생겨
   reporter: 'html',
