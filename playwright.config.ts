@@ -1,6 +1,9 @@
 // playwright.config.ts
 
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export default defineConfig({
   // 테스트 파일이 있는 폴더
