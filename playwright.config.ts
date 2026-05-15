@@ -13,7 +13,7 @@ export default defineConfig({
   retries: 1,
 
   // 테스트 하나당 최대 대기 시간 (30초)
-  timeout: 60000,
+  timeout: 30000,
 
   // 리포트 형식: html로 하면 나중에 예쁜 결과 페이지가 생겨
   reporter: 'html',
@@ -27,6 +27,9 @@ export default defineConfig({
 
     // 실패 시 영상도 저장 (나중에 디버깅할 때 진짜 유용함)
     video: 'retain-on-failure',
+
+    locale: 'ko-KR',
+    timezoneId: 'Asia/Seoul',
   },
 
   // 어떤 브라우저에서 테스트할지

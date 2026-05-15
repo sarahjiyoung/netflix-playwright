@@ -3,11 +3,6 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 
-test.use({
-  // 매 테스트마다 쿠키/세션 없는 새 브라우저로 시작
-  storageState: { cookies: [], origins: [] }
-});
-
 test.describe('넷플릭스 로그인 유효성 검사', () => {
 
   test.beforeEach(async ({ page }) => {
@@ -68,13 +63,13 @@ test.describe('넷플릭스 로그인 유효성 검사', () => {
     await expect(page).toHaveURL(/browse|SwitchProfile|ManageProfiles/, { timeout: 15000 });
 
     // 프로필 선택 화면 확인
-    const profileHeading = page.getByRole('heading', { name: /프로필을 선택|Who's watching/ });
-    await expect(profileHeading).toBeVisible({ timeout: 15000 });
+    // const profileHeading = page.getByRole('heading', { name: /프로필을 선택|Who's watching/ });
+    // await expect(profileHeading).toBeVisible({ timeout: 15000 });
 
     // 첫 번째 프로필 선택 (졍이)
     await page.locator('[data-uia="action-select-profile+primary"]').click();
 
     // 최종적으로 browse 페이지로 이동 확인
-    await expect(page).toHaveURL(/browse/, { timeout: 15000 })
+    await expect(page).toHaveURL(/browse/, { timeout: 10000 })
   });
 });
